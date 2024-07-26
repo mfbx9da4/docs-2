@@ -1,0 +1,23 @@
+speakeasyVersion: 1.346.0
+sources:
+    merge-code-samples-into-spec:
+        sourceNamespace: merge-code-samples-into-spec
+        sourceRevisionDigest: sha256:8b6ac4c7d552ecf33720cbe0ef357a848bedbadaab4d55ceeb182bc70d402174
+        sourceBlobDigest: sha256:160e4a11fbcb0815429b04d918ed2b4affe235df99d9f0220b57841d5d538dd0
+        tags:
+            - latest
+            - main
+targets: {}
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        merge-code-samples-into-spec:
+            inputs:
+                - location: registry.speakeasyapi.dev/panora/panora/panora-open-api-swagger
+            overlays:
+                - location: registry.speakeasyapi.dev/panora/panora/code-samples-typescript-my-first-target:main
+            output: openapi-with-code-samples.json
+            registry:
+                location: registry.speakeasyapi.dev/panora/panora/merge-code-samples-into-spec
+    targets: {}
